@@ -544,7 +544,7 @@ class OcclusionDataset(Dataset):
 
 
 def get_masks(i, scale, seq_name):
-    path = "/project/wujh1123/denver/model_0/preprocess/datasets"
+    path = "/project/wujh1123/denver/preprocess/datasets"
     path = os.path.join(path, seq_name, "binary", '*')
     imfiles = sorted(glob.glob(path))
     im = Image.open(imfiles[i])

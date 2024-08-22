@@ -1,4 +1,4 @@
-root: "/project/wujh1123/denver/model_0/custom_videos"
+root: "/project/wujh1123/denver/custom_videos"
 type: "custom"
 res: "512p"
 seq: "HA54236_0001"

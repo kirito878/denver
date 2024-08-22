@@ -1,3 +1,7 @@
+from data import write_flo
+from utils.flow_viz import flow_to_image
+from utils.utils import InputPadder
+from raft import RAFT
 import argparse
 import imageio
 import glob
@@ -10,23 +14,20 @@ from PIL import Image
 from concurrent import futures
 
 import torch
-RAFT_BASE = "/project/wujh1123/denver/model_0/RAFT"
+RAFT_BASE = "/project/wujh1123/denver/RAFT"
 
 sys.path.append(os.path.join(RAFT_BASE, "core"))
 
-from raft import RAFT
-from utils.utils import InputPadder
-from utils.flow_viz import flow_to_image
 
 sys.path.append(os.path.abspath("__file__/../.."))
-from data import write_flo
 
 
 DEVICE = torch.device("cuda")
 
+
 def load_image(imfile):
     img = np.array(Image.open(imfile).convert("RGB")).astype(np.uint8)
-    
+
     img = torch.from_numpy(img).permute(2, 0, 1).float()
     return img[None]
 
@@ -81,21 +82,24 @@ def run_raft(args):
     tgt_idcs = src_idcs + args.gap
 
     src_imgs, tgt_imgs = images[src_idcs], images[tgt_idcs]
-    names = [os.path.splitext(os.path.basename(imfiles[i]))[0] for i in src_idcs]
+    names = [os.path.splitext(os.path.basename(imfiles[i]))[0]
+             for i in src_idcs]
 
     flow_batches = []
     with torch.no_grad():
         for i in range(0, len(src_imgs), args.batch_size):
-            src_batch = src_imgs[i : i + args.batch_size].to(DEVICE)
-            tgt_batch = tgt_imgs[i : i + args.batch_size].to(DEVICE)
+            src_batch = src_imgs[i: i + args.batch_size].to(DEVICE)
+            tgt_batch = tgt_imgs[i: i + args.batch_size].to(DEVICE)
 
-            flows_low, flows_up = model(src_batch, tgt_batch, iters=20, test_mode=True)
+            flows_low, flows_up = model(
+                src_batch, tgt_batch, iters=20, test_mode=True)
 
             flows = padder.unpad(flows_up)
             flows = flows.detach().cpu()  # (N, 2, H, W)
             flow_batches.append(flows)
 
-    flows = torch.cat(flow_batches, axis=0).permute(0, 2, 3, 1).numpy()  # (N, H, W, 2)
+    flows = torch.cat(flow_batches, axis=0).permute(
+        0, 2, 3, 1).numpy()  # (N, H, W, 2)
     print("processed {} flows".format(len(flows)))
     print(flows.shape)
 
@@ -106,7 +110,8 @@ def run_raft(args):
 
             if args.out_img_dir is not None:
                 flow_img = flow_to_image(flows[i]).astype(np.uint8)
-                img_path = os.path.join(args.out_img_dir, "{}.png".format(name))
+                img_path = os.path.join(
+                    args.out_img_dir, "{}.png".format(name))
                 exe.submit(imageio.imwrite, img_path, flow_img)
 
     print("Wrote {} raw flows to {}".format(len(flows), args.out_dir))
@@ -119,12 +124,15 @@ if __name__ == "__main__":
     parser.add_argument("rgb_dir")
     parser.add_argument("out_dir")
     parser.add_argument("-I", "--out_img_dir", default=None)
-    parser.add_argument("--ckpt", default="raft-things.pth", help="restore checkpoint")
+    parser.add_argument("--ckpt", default="raft-things.pth",
+                        help="restore checkpoint")
     parser.add_argument("--gap", type=int, default=1, help="default 1")
-    parser.add_argument("-b", "--batch_size", type=int, default=8, help="default 8")
-    parser.add_argument("-j", "--n_writers", type=int, default=8, help="default 8")
+    parser.add_argument("-b", "--batch_size", type=int,
+                        default=8, help="default 8")
+    parser.add_argument("-j", "--n_writers", type=int,
+                        default=8, help="default 8")
 
-    ## include RAFT model args
+    # include RAFT model args
     parser.add_argument("--small", action="store_true", help="use small model")
     parser.add_argument(
         "--mixed_precision", action="store_true", help="use mixed precision"
