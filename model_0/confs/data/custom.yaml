@@ -1,0 +1,6 @@
+root: "/project/wujh1123/denver/model_0/custom_videos"
+type: "custom"
+res: "512p"
+seq: "HA54236_0001"
+scale: 1
+flow_gap: 1

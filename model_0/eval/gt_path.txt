@@ -1,0 +1,2 @@
+/project/wujh1123/denver/model_0/xca_dataset/CVAI-2832/ground_truth/CVAI-2832RAO18_CRA31/00026.png
+/project/wujh1123/denver/model_0/xca_dataset/CVAI-2832/ground_truth/CVAI-2832RAO18_CRA31/00033.png
