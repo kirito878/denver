@@ -36,12 +36,12 @@ def process_sequence(gpu, dtype, root, seq, gap, res="480p", batch_size=4):
 
 
 def main(args):
-    print("Have you updated the path to the RAFT repo? (y/n)")
-    resp = input()
-    if resp.lower() != "y":
-        print("Please modify scripts/run_raft.py")
-        sys.exit()
-    print("Comment this out in scripts/run_raft.py")
+    # print("Have you updated the path to the RAFT repo? (y/n)")
+    # resp = input()
+    # if resp.lower() != "y":
+    #     print("Please modify scripts/run_raft.py")
+    #     sys.exit()
+    # print("Comment this out in scripts/run_raft.py")
 
     if args.root is None:
         print("Have you updated the paths to your data? (y/n)")

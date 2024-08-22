@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
-ROOT = "/project/wujh1123/denver/model_0"
+ROOT = "/project/wujh1123/denver"
 
 
 def extract_images(input_folder, output_folder, index):

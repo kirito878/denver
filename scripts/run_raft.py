@@ -1,7 +1,3 @@
-from data import write_flo
-from utils.flow_viz import flow_to_image
-from utils.utils import InputPadder
-from raft import RAFT
 import argparse
 import imageio
 import glob
@@ -18,8 +14,12 @@ RAFT_BASE = "/project/wujh1123/denver/RAFT"
 
 sys.path.append(os.path.join(RAFT_BASE, "core"))
 
+from raft import RAFT
+from utils.utils import InputPadder
+from utils.flow_viz import flow_to_image
 
 sys.path.append(os.path.abspath("__file__/../.."))
+from data import write_flo
 
 
 DEVICE = torch.device("cuda")

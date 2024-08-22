@@ -8,7 +8,7 @@ from skimage import color, data, filters, graph, measure, morphology
 import preprocess
 import subprocess
 import argparse
-ROOT = "/project/wujh1123/denver/model_0"
+ROOT = "/project/wujh1123/denver"
 
 
 def skeltoize(path="CVAI-2829RAO9_CRA37"):
@@ -36,6 +36,13 @@ def main(args):
     # preprocess
     preprocess.filter_extract(data_name)
     skeltoize(data_name)
+
+    # run raft
+
+    cmd = f"cd scripts && python dataset_raft.py  --root ../custom_videos/ --dtype custom --seqs {data_name}"
+    print(cmd)
+    subprocess.call(cmd, shell=True)
+
     # stage 1
     cmd = f"python nir/booststrap.py --data {data_name}"
     print(cmd)
@@ -43,7 +50,7 @@ def main(args):
     # stage 2
     cmd = f"python run_opt.py data=custom data.seq={data_name}"
     print(cmd)
-    subprocess.call(cmd, shell=True)
+    # subprocess.call(cmd, shell=True)
 
 
 if __name__ == "__main__":

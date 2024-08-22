@@ -34,13 +34,13 @@ def get_thresholds(folder_path):
 
 def find_cut_position(folder_path):
     thresholds, maximum_position = get_thresholds(folder_path)
-    print("The index of image that Frangi/Sato filter favors:", maximum_position)
+    # print("The index of image that Frangi/Sato filter favors:", maximum_position)
 
     cut_position = len(thresholds)-1
     for i in range(maximum_position + 1, len(thresholds)):
         if thresholds[i] >= 94.0:
             cut_position = i
-            print("The position that we cut the dataset in half:", cut_position)
+            # print("The position that we cut the dataset in half:", cut_position)
             break
-    cut_position = 45
+    cut_position = len(thresholds)-1
     return thresholds, cut_position, maximum_position
