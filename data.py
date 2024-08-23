@@ -19,8 +19,8 @@ from torch.utils.data import (
 import torchvision.transforms as T
 
 import utils
-
-
+# ROOT = "/project/wujh1123/denver"
+ROOT = os.path.abspath("__file__/..")
 def split_dataset_idcs(dset, n_val):
     """
     split the video sequence either at the front or back of the video
@@ -544,7 +544,7 @@ class OcclusionDataset(Dataset):
 
 
 def get_masks(i, scale, seq_name):
-    path = "/project/wujh1123/denver/preprocess/datasets"
+    path = f"{ROOT}/preprocess/datasets"
     path = os.path.join(path, seq_name, "binary", '*')
     imfiles = sorted(glob.glob(path))
     im = Image.open(imfiles[i])

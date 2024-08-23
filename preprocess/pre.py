@@ -8,8 +8,7 @@ import cv2
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
-ROOT = "/project/wujh1123/denver"
-
+ROOT = os.path.abspath("__file__/..")
 
 def extract_images(input_folder, output_folder, index):
     os.makedirs(output_folder, exist_ok=True)

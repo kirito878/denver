@@ -1,2 +1,0 @@
-/project/wujh1123/denver/outputs/dev/custom-CVAI-2832RAO18_CRA31-gap1-2l/init_model/00040020_val_refine/masks_0/00026.png
-/project/wujh1123/denver/outputs/dev/custom-CVAI-2832RAO18_CRA31-gap1-2l/init_model/00040020_val_refine/masks_0/00033.png

@@ -22,7 +22,7 @@ cath1.zip
 *.so
 *.png
 #
-*dataset/
+# *dataset/
 *preprocessing/frangi/
 # Distribution / packaging
 .Python

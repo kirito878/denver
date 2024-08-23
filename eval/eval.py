@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 
 # 定义两个文件夹的路径
-binary_folder = "/project/wujh1123/denver/eval/out_path.txt"
-ground_truth_folder = "/project/wujh1123/denver/eval/gt_path.txt"
+binary_folder = "out_path.txt"
+ground_truth_folder = "gt_path.txt"
 
 binary_files = []
 with open(binary_folder, "r") as file:
@@ -14,15 +14,7 @@ ground_truth_files = []
 with open(ground_truth_folder, "r") as file:
     for line in file:
         ground_truth_files.append(line.strip())
-# 获取两个文件夹中的文件名列表
-# binary_files = os.listdir(binary_folder)
-# ground_truth_files = os.listdir(ground_truth_folder)
-# for binary_file, gt_file in zip(binary_files, ground_truth_files):
-#     print("--------------0-------------------")
-#     print(binary_file)
-#     print(gt_file)
-#     print("--------------1-------------------")
-# 创建空列表来存储每个图像的比较结果
+
 
 accuracies = []
 recalls = []

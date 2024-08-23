@@ -10,8 +10,9 @@ from PIL import Image
 from concurrent import futures
 
 import torch
-RAFT_BASE = "/project/wujh1123/denver/RAFT"
-
+BASE_DIR = os.path.abspath("__file__/..")
+ROOT_DIR = os.path.dirname(BASE_DIR)
+RAFT_BASE = f"{ROOT_DIR}/RAFT"
 sys.path.append(os.path.join(RAFT_BASE, "core"))
 
 from raft import RAFT

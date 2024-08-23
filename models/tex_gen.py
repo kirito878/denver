@@ -7,9 +7,14 @@ from .blocks import *
 from .unet import UNet
 import sys
 import numpy as np
+import os 
 sys.path.append("..")
 DEVICE = torch.device("cuda")
 
+ROOT = os.path.abspath("__file__/..")
+# ROOT = os.path.dirname(BASE_DIR)
+print("test_ROOT",ROOT)
+# ROOT = "/project/wujh1123/denver"
 
 def resample_textures(texs, coords, random_comp=False):
     """
@@ -93,7 +98,7 @@ class TexUNet(nn.Module):
         texs_clone = texs.clone()
         with torch.no_grad():
             back_ground = cv2.imread(
-                f"/project/wujh1123/denver/nirs/{self.data_path}/scene.png").astype(np.float32) / 255
+                f"{ROOT}/nirs/{self.data_path}/scene.png").astype(np.float32) / 255
             width, height, _ = back_ground.shape
             back_ground = cv2.resize(back_ground, (width*2, height*2))
             back_ground = cv2.cvtColor(back_ground, cv2.COLOR_BGR2RGB)

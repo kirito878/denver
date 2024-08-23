@@ -8,7 +8,8 @@ from skimage import color, data, filters, graph, measure, morphology
 import preprocess
 import subprocess
 import argparse
-ROOT = "/project/wujh1123/denver"
+
+ROOT = os.path.abspath("__file__/..")
 
 
 def skeltoize(path="CVAI-2829RAO9_CRA37"):
@@ -50,7 +51,7 @@ def main(args):
     # stage 2
     cmd = f"python run_opt.py data=custom data.seq={data_name}"
     print(cmd)
-    # subprocess.call(cmd, shell=True)
+    subprocess.call(cmd, shell=True)
 
 
 if __name__ == "__main__":

@@ -30,7 +30,7 @@ def process_sequence(gpu, dtype, root, seq, gap, res="480p", batch_size=4):
     print(rgb, out, out_img)
     exe = os.path.join(BASE_DIR, "run_raft.py")
     cmd = f"python {exe} {rgb} {out} -I {out_img} --gap {gap} -b {batch_size}"
-    cmd = f"CUDA_VISIBLE_DEVICES={gpu} {cmd}"
+    # cmd = f"CUDA_VISIBLE_DEVICES={gpu} {cmd}"
     print(cmd)
     subprocess.call(cmd, shell=True)
 
