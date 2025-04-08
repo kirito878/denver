@@ -8,8 +8,8 @@ n_layers: 2
 resume: True
 preload: True
 log_root: outputs
-exp_name: dev 
+exp_name: init_model 
 
 hydra:
     run:
-        dir: ${log_root}/${exp_name}/${data.type}-${data.seq}-gap${data.flow_gap}-${n_layers}l/init_model
+        dir: ${log_root}/dev/${data.type}-${data.seq}-gap${data.flow_gap}-${n_layers}l/{exp_name}
