@@ -13,6 +13,11 @@ Python versionn = 3.9
 conda env create -f environment.yml
 ```
 
+## Download RAFT checkpoint
+```
+cd RAFT
+./download_models.sh
+```
 ## Test-time training
 ```
 python main.py -d {seq_name}
