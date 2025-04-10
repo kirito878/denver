@@ -5,7 +5,8 @@
 [![_](https://img.shields.io/badge/arXiv-2406.01591-b31b1b.svg)](https://arxiv.org/abs/2406.01591) 
 [![_](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1IYGiJECwAaoLPq7KGHQE_dvtrdHz9fUA?authuser=2&hl=zh-tw#scrollTo=n1ppvOhqbRkV)
 ## Dataset path 
-Put the dataset into the `xca_dataset` folder.
+* Download from [google drive](https://drive.google.com/file/d/11e5SmynT8qitWwSGBj5nn3JVYTNG5VZP/view?usp=sharing)
+* Put the dataset into the `xca_dataset` folder.
 
 ## Requirements
 Python versionn = 3.9
@@ -22,7 +23,10 @@ cd RAFT
 ```
 python main.py -d {seq_name}
 ```
-
+e.g. 
+```
+python main.py -d CVAI-2828RAO2_CRA32
+```
 ## Batch running
 ```
 python launch.py -f ./job_specs/vessel.txt --gpus {gpu_ids}
