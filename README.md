@@ -50,11 +50,11 @@ python gt_filename.py -d init_model
 Please cite us if our work is useful for your research.
 
 ```
-@article{wu2024denver,
-    title={DeNVeR: Deformable Neural Vessel Representations for Unsupervised Video Vessel Segmentation},
-    author={Chun-Hung Wu and Shih-Hong Chen and Chih Yao Hu and Hsin-Yu Wu and Kai-Hsin Chen and Yuyou-chen and Chih-Hai Su and Chih-Kuo Lee and Yu-Lun Liu},
-    journal={arXiv},
-    year={2025}
+@inproceedings{wu2025denver,
+  title={DeNVeR: Deformable Neural Vessel Representations for Unsupervised Video Vessel Segmentation},
+  author={Wu, Chun-Hung and Chen, Shih-Hong and Hu, Chih Yao and Wu, Hsin-Yu and Chen, Kai-Hsin and Chen, Yu-You and Su, Chih-Hai and Lee, Chih-Kuo and Liu, Yu-Lun},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
 }
 ```
 
