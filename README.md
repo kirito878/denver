@@ -5,9 +5,31 @@
 [![_](https://img.shields.io/badge/arXiv-2406.01591-b31b1b.svg)](https://arxiv.org/abs/2406.01591) 
 [![_](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1IYGiJECwAaoLPq7KGHQE_dvtrdHz9fUA?authuser=2&hl=zh-tw#scrollTo=n1ppvOhqbRkV)
 ## Dataset path 
-* Download from [google drive](https://drive.google.com/file/d/11e5SmynT8qitWwSGBj5nn3JVYTNG5VZP/view?usp=sharing)
-* Put the dataset into the `xca_dataset` folder.
+* Download XACV from [google drive](https://drive.google.com/file/d/11e5SmynT8qitWwSGBj5nn3JVYTNG5VZP/view?usp=sharing)
+* Replace `xca_dataset` with our [XACV](https://drive.google.com/file/d/11e5SmynT8qitWwSGBj5nn3JVYTNG5VZP/view?usp=sharing) dataset.
 
+
+```
+XACV
+├── CVAI-2828
+│   ├── ground_truth
+│   │   ├── CVAI-2828RAO2_CRA32
+│   │   │   ├── 00056.png
+│   │   │   └── 00065.png
+│   │   └── CVAI-2828RAO2_CRA32CATH
+│   │       ├── 00056.png
+│   │       └── 00065.png
+│   └── images
+│       └── CVAI-2828RAO2_CRA32
+│           ├── 00000.png
+│           ├── 00001.png
+│           ├── 00002.png
+│           ├── 00003.png
+│           ├── 00004.png
+│           ├── ...
+├── CVAI-2828
+├── ...
+```
 ## Requirements
 Python versionn = 3.9
 ```
